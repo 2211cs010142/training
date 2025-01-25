@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Javascript callback
+        //A Call back function is a function that is passed argument to another function
+        //example
+        function greet(name ,callback) {
+            console.log("hello" +name);
+            callback();//executes the function after greeting
+        }
+        function Goodbye(){
+            console.log("Goodbye!")
+        }
+        greet("harshith" ,Goodbye);
+        //example
+        function greet(name ,callback){
+            console.log("hello" +name);
+            callback();
+        }
+        greet("harshith" ,function() {
+            console.log("goodbye!")
+        });//anonymous function as callback
+        //exp:we didn't pass a named function like(goodbye), Instead of that we defined an anonymous function directly
+        //with in the greet function
+
+        //example
+        //Asynchronous callback with timeout
+
+        function fetchData(callback){
+            console.log("Fetching data...");
+            setTimeout(function(){
+                console.log("Data Fetched");
+                callback();
+            },2000);
+        }
+        function processData(){
+            console.log("processing the fetched data..")
+        }
+        fetchData(processData);
+    </script>
+</body>
+</html>
